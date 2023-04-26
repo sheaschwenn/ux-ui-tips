@@ -28,7 +28,7 @@ app.get('/feedback', (req, res) =>
 );
 
 app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirname, ''))
+  res.status(404).sendFile(path.join(__dirname, '/public/pages/404.html'))
 })
 
 app.listen(PORT, () =>
