@@ -122,8 +122,15 @@ const showErrors = (errorObj) => {
 };
 
 // Helper function to send a POST request to the diagnostics route (/api/diagnostics)
-const submitDiagnostics = (submissionObj) => {
+const submitDiagnostics = (newDiagnostic) => {
   // TODO: your code here
+  fetch('/api/diagnostics', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(newDiagnostic),
+  })
   console.info(
     '⚠️ Create the logic for the fetch POST request in scripts/index.js'
   );
