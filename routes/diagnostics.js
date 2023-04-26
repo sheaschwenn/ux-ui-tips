@@ -17,13 +17,12 @@ diagnostics.post('/', (req, res) => {
   if(time && error_id && errors && tip && topic&&username){
   const newDiagnostic ={
     time, 
-    error_id, 
+    error_id :uuidv4, 
     errors, 
     tip, 
     topic,
     username
   }
-
 
   readAndAppend(newDiagnostic,"./db/diagnostics.json")
 
@@ -33,7 +32,10 @@ diagnostics.post('/', (req, res) => {
   };
 
   res.json(response);
-}
+ }
+ else{
+  res.json("Error in posting diagnostic")
+ }
 });
 
 
